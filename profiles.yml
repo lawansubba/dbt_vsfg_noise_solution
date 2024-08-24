@@ -1,4 +1,4 @@
-dbt_vsfg_gdri:
+dbt_vsfg_noise_solution:
   outputs:
     dev:
       type: mysql
@@ -6,6 +6,8 @@ dbt_vsfg_gdri:
       user: "data_contributor"
       password: "{{ env_var('mysql_password') }}"
       port: 3306
-      schema: "vsfg_gdri"
-      dbname: "vsfg_gdri"
+      schema: "vsfg_noise_solution"
+      dbname: "vsfg_noise_solution"
   target: dev
+
+  
