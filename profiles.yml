@@ -9,5 +9,3 @@ dbt_vsfg_noise_solution:
       schema: "vsfg_noise_solution"
       dbname: "vsfg_noise_solution"
   target: dev
-
-  

@@ -1,4 +1,4 @@
-"Impact: Created Date","Account unique ID","Participant: Industry","UIN","SWEMWBS Start Age","Gender","Ethnicity","Postcode","SWEMWBS Start Score","SWEMWBS End Score","Comments","Likes","Posts","External Members"
+"impact_created_date","account_unique_id","participant_industry","uin","swemwbs_start_age","gender","ethnicity","postcode","swemwbs_start_score","swemwbs_end_score","comments","likes","posts","external_members"
 05/24/2021,"001g4O3N","Other","2301",15,"Male","White or White British","PE30",17.98,24.11,,,0,0
 05/24/2021,"000l9Vom","Mental Health","2823",15,"Female","White or White British","IP28",16.88,16.88,3,3,39,1
 05/24/2021,"000U8fIB","Education","2909",14,"Male","White or White British","BA2",17.43,23.21,56,37,37,5
