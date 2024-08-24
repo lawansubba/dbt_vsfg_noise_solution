@@ -1,0 +1,11 @@
+dbt_vsfg_gdri:
+  outputs:
+    dev:
+      type: mysql
+      host: "localhost"
+      user: "data_contributor"
+      password: "{{ env_var('mysql_password') }}"
+      port: 3306
+      schema: "vsfg_noise_solution"
+      dbname: "vsfg_noise_solution"
+  target: dev
