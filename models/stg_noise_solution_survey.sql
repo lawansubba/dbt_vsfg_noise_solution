@@ -5,7 +5,7 @@ select
      CAST(uin AS UNSIGNED) AS uin,
      CAST(swemwbs_start_age AS UNSIGNED) AS swemwbs_start_age,
      CAST(gender AS char(10)) AS gender,
-     CAST(ethnicity AS char(20)) AS ethnicity,
+     CAST(ethnicity AS char(50)) AS ethnicity,
      CAST(postcode AS char(10)) AS postcode,
      CAST(swemwbs_start_score AS double) AS swemwbs_start_score,
      CAST(swemwbs_end_score AS double) AS swemwbs_end_score,
