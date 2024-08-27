@@ -5,34 +5,37 @@ WITH stg_noise_solution_survey AS (
         participant_industry,
         uin,
         swemwbs_start_age,
-        gender,
+        CASE
+            WHEN swemwbs_start_age BETWEEN 0 and 9 THEN '0 - 9'
+            WHEN swemwbs_start_age BETWEEN 10 AND 19 THEN '10-19'
+            WHEN swemwbs_start_age BETWEEN 20 AND 29 THEN '20-29'
+            WHEN swemwbs_start_age >= 30 THEN '30+'
+            ELSE 'Unknown'
+        END as swemwbs_start_age_group,
+        CASE 
+            WHEN gender IS NULL THEN 'Other'
+            WHEN gender in ('Other', 'Prefer not', 'Non-binary') THEN 'Other'
+            ELSE gender
+        END as gender,
         ethnicity,
         CASE
             WHEN ethnicity IN ('White or White British',
-                                        'English/Welsh/Scottish/Northern Irish/British Irish',
-                                        'White ? British/English/Scottish/Welsh/Northern Irish',
-                                        'White ? any other white background') THEN 'White/Caucasian'
+                                'English/Welsh/Scottish/Northern Irish/British Irish',
+                                'White ? British/English/Scottish/Welsh/Northern Irish',
+                                'White ? any other white background') THEN 'White'
 
             WHEN ethnicity IN ('Black or Black British',
-                                        'Black/African/Caribbean/Black British ? African',
-                                        'White and Black Caribbean') THEN 'Black/African/Caribbean/Black British'
+                                'Black/African/Caribbean/Black British ? African',
+                                'White and Black Caribbean') THEN 'Black'
 
             WHEN ethnicity IN ('Asian',
-                                        'Bangladesh') THEN 'Asian'
+                                'Bangladesh') THEN 'Asian'
 
             WHEN ethnicity IN ('Mixed',
-                                        'Mixed/multiple ethnic groups ? White and Black African background',
-                                        'White and Black Caribbean') THEN 'Mixed/Multiple Ethnic Groups'
+                                'Mixed/multiple ethnic groups ? White and Black African background',
+                                'White and Black Caribbean') THEN 'Mixed'
 
-            WHEN ethnicity IN ('Any',
-                                        'Other',
-                                        'Other ? any other ethnic group',
-                                        'Not yet available') THEN 'Other'
-
-            WHEN ethnicity IN ('Decline to say',
-                                        'Prefer not to say') THEN 'Prefer Not to Answer/Decline to Say'
-
-            ELSE 'Unknown' -- This handles any unexpected or unmatched values
+            ELSE 'Other' -- This handles any unexpected or unmatched values
         END AS ethnicity_wider,
         postcode,
         CASE
